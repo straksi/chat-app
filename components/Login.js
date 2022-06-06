@@ -12,9 +12,7 @@ const Login = () => {
 			</Head>
 			<main className="main">
 				<section className="login-section">
-					<div className="container">
-						<button className="btn" onClick={()=>signInWithGoogle("", {prompt: "select_account"})}>Sign In with Google</button>
-					</div>
+					<button className="btn" onClick={()=>signInWithGoogle("", {prompt: "select_account"})}>Sign In with Google</button>
 				</section>
 			</main>
 		</>
