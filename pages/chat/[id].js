@@ -78,7 +78,7 @@ const Chat = () => {
 const Message = ({ text, className }) => {
     return (
         <div className={`message ${className}`}>
-            { urlify(text)? <a href={text} target="_blank">{text}</a>: text}
+            { urlify(text)? <a href={text} rel="noreferrer" target="_blank">{text}</a>: text}
         </div>
     )
 
