@@ -37,8 +37,7 @@ const Chat = () => {
                 behavior: "smooth",
                 block: 'start',
             }), 100)
-        , [messages]})
-    
+        , [messages]})    
     return (
         <div>
             <Head>

@@ -26,7 +26,7 @@ const Sidebar = () => {
     const signOutHandler = () =>{
         signOut(auth)
         // router.replace(`/`);
-        window.history.replaceState(null, '', '/')
+        // window.history.replaceState(null, '', '/')
     }
     return (
         <div className="sidebar">
