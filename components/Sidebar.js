@@ -23,11 +23,16 @@ const Sidebar = () => {
             await addDoc(collection(db, 'chats'), {users: [user.email, input]})
         }
     }
+    const signOutHandler = () =>{
+        signOut(auth)
+        // router.replace(`/`);
+        window.history.replaceState(null, '', '/')
+    }
     return (
         <div className="sidebar">
             <div className="sidebar-head">
-                <User src={user.photoURL} name={user.displayName} email={user.email} />
-                <div className="logout" onClick={() => { signOut(auth) }}>out</div>
+                <User src={user?.photoURL} name={user.displayName} email={user.email} />
+                <div className="logout" onClick={() => {signOutHandler()}}>out</div>
             </div>
             <div className="sidebar-create">
                 <button className="btn" onClick={newChat}>New Chat</button>

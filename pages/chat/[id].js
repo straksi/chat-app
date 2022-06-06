@@ -10,6 +10,8 @@ import { auth, db } from '../../firebaseconfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import getOtherEmail from '../../utils/getOtherEmail';
 import urlify from '../../utils/urlify';
+import timeStampConvert from '../../utils/timeStampConvert';
+import imgify from '../../utils/imgify';
 const Chat = () => {
     const [user] = useAuthState(auth);
     const router = useRouter();
@@ -28,6 +30,7 @@ const Chat = () => {
         })
         setInput('')
     }
+
     useEffect(() =>{
         setTimeout(
             bottomOfChat.current.scrollIntoView({
@@ -35,7 +38,7 @@ const Chat = () => {
                 block: 'start',
             }), 100)
         , [messages]})
-    console.log(urlify('www'))
+    
     return (
         <div>
             <Head>
@@ -58,11 +61,11 @@ const Chat = () => {
                             </div>
                         </div>
                         <div className="chat__body">
-                            {messages?.map(message => <Message key={Math.random()} text={message.text} className={message.sender == user.email ? 'is-sender' : ''} />)}
+                            {messages?.map(message => <Message key={Math.random()} text={message.text} timeStamp={message.timestamp?.seconds} className={message.sender == user.email ? 'is-sender' : ''} />)}
                             <div ref={bottomOfChat}></div>
                         </div>
                         <div className="chat__bottom">
-                            <div className="form__group"><input type="text" placeholder="Type a message" className="form__input" value={input} onChange={e => setInput(e.target.value)} /></div>
+                            <div className="form__group"><input type="text" placeholder="Type a message" className="form__input" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e=>e.key=='Enter' && sendMessage(e)} /></div>
                             <button className="btn" type="submit" onClick={sendMessage}>Send</button>
                         </div>
                     </div>
@@ -75,10 +78,14 @@ const Chat = () => {
         </div>
     );
 };
-const Message = ({ text, className }) => {
+const Message = ({ text, className, timeStamp=169000000}) => {
     return (
         <div className={`message ${className}`}>
-            { urlify(text)? <a href={text} rel="noreferrer" target="_blank">{text}</a>: text}
+            <div className="message__date">{(timeStampConvert(timeStamp).isToday? 'Сегодня': timeStampConvert(timeStamp).long) +' в '+ timeStampConvert(timeStamp).short }</div>
+            <div className="message__bubble">
+                { ( urlify(text) && imgify(text) ) ? <a href={ text.indexOf('https://')==0?text:'https://'+ text  } rel="noreferrer" target="_blank">{text}</a>: text}
+                { ( imgify(text) ) && <img src={text} alt="" />}
+            </div>       
         </div>
     )
 
