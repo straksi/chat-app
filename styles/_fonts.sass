@@ -1,0 +1,13 @@
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+	@font-face
+		font-family: 'ProximaNova'
+		font-weight: $weight
+		font-style: $style
+		src: url(#{$file-path}.woff) format('woff')
+
++font-face("ProximaNova", '../fonts/ProximaNova-Light/ProximaNova-Light', 300)
++font-face("ProximaNova", "../fonts/ProximaNova/ProximaNova-Regular")
++font-face("ProximaNova", "../fonts/ProximaNova-LightIt/ProximaNova-LightIt",300, Italic )
++font-face("ProximaNova", "../fonts/ProximaNova-Bold/ProximaNova-Bold", 700)
++font-face("ProximaNova", "../fonts/ProximaNova-Semibold/ProximaNova-Semibold", 600)
++font-face("ProximaNova", "../fonts/ProximaNovaT-Thin/ProximaNovaT-Thin", 100)

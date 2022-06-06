@@ -1,0 +1,431 @@
+::placeholder
+	color: #fff
+	font-size: 16px
+	font-weight: 500
+	@media screen and (max-width:425px)
+		font-size: 14px
+::-webkit-scrollbar
+	width: 10px
+	height: 10px
+::-webkit-scrollbar-track
+	background: transparent
+::-webkit-scrollbar-thumb
+	background:  $darkred
+	border-radius: 10px
+	&:hover
+		background: darken(#eeeeee, 20%)
+::selection
+	background-color: $accent
+	color: #fff
+*
+	scrollbar-width: thin
+	scrollbar-color: $darkred transparent
+body
+	min-width: 319px
+	position: relative
+	line-height: 1.25
+	font-family: $default-font
+	overflow: hidden
+	height: 100vh
+	color: $text
+	// letter-spacing: 0.02em
+	box-sizing: border-box
+	font-weight: 500
+	font-size: 18px
+	// max-width: 1920px
+	// margin-left: auto
+	// margin-right: auto
+	background: #292841
+	+media-breakpoint-down(xs)
+		font-size: 16px
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+h1, h2, h3 ,h4, h5 ,h6
+	margin: 0
+	padding: 0
+	color: $text
+	line-height: 1.2em
+p
+	font-size: 18px
+	color: $text
+	font-family: $default-font
+	line-height: 1.45em
+	font-weight: 500
+	margin-bottom: 2rem
+	+media-breakpoint-down(xs)
+		font-size: 16px
+span
+	color: $text
+	font-weight: 500
+a
+	text-decoration: none
+	color: $text
+	transition: all .25s ease
+	&:hover
+		text-decoration: none
+		cursor: pointer
+		color: $red
+	
+@media (hover: hover)
+	a:hover
+		text-decoration: none
+		cursor: pointer
+		color: $red
+.container-fluid
+	padding-right: 75px
+	padding-left: 75px
+	+media-breakpoint-down(xs)
+		padding-left: 15px
+		padding-right: 15px
+.link-arrow
+	display: inline-block
+	letter-spacing: 2.8px
+	padding-right: 58px
+	font-size: 14px
+	text-transform: uppercase
+	line-height: 1.4em
+	border-bottom: 1px solid #fff
+	position: relative
+ul
+	padding-left: 0
+	margin-bottom: 0
+	list-style: none
+.list
+	&>li
+		margin: 10px 0
+		padding-left: 30px
+		position: relative
+		line-height: 1.45em
+		color: $text
+		&>*
+			color: inherit
+			line-height: inherit
+		&:before
+			position: absolute
+			content: ''
+			left: 0
+			top: 0.45em
+			width: 10px
+			height: 10px
+			background: $red
+b, strong
+	font-weight: 500
+input
+	font-family: $default-font
+	color: $text
+	// overflow: hidden
+.main
+	section.mg-b
+		margin-bottom: 8rem
+		padding-bottom: 0
+		+media-breakpoint-down(md)
+			margin-bottom: 5rem
+	section.fill-content
+		margin-bottom: 0
+		&:last-child
+			margin-bottom: 0
+		&:first-child
+			margin-top: 0 
+		&+section.fill-content
+			margin-top: 0
+	section.fill-top
+		margin-top: 0
+	section.inside-content
+		margin: 3rem 0
+		+media-breakpoint-down(md)
+			margin: 4rem 0
+		+media-breakpoint-down(xs)
+			margin: 2rem 0
+section
+	margin: 8rem 0
+	&:last-child
+		margin-bottom: 0
+	&:first-child
+		margin-top: 0
+	+media-breakpoint-down(md)
+		margin: 6.8rem 0
+	+media-breakpoint-down(sm)
+		margin: 5rem 0
+	@media screen and (max-width:400px)
+		margin: 4rem 0
+.text-box
+	&>*
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
+.title
+	font-size: 40px
+	line-height: 1.15em
+	margin-bottom: 47px
+	font-weight: 300
+	color: $text
+	text-align: left
+	span
+		color: $red
+	+media-breakpoint-down(lg)
+		// font-size: 65px
+	+media-breakpoint-down(md)
+		// font-size: 62px
+		// margin-bottom: 3rem
+	+media-breakpoint-down(sm)
+		// font-size: 60px
+		// margin-bottom: 3rem
+		font-size: 32px
+	+media-breakpoint-down(xs)
+		// font-size: 46px
+		font-size: 36px
+		margin-bottom: 24px
+	@media screen and (max-width:450px)
+		// font-size: 45px
+		font-size: 32px
+	@media screen and (max-width:410px)
+		font-size: 29px
+	@media screen and (max-width:360px)
+		font-size: 26px
+		// font-size: 44px
+		// margin-bottom: 25px
+	&.small
+		font-size: 24px
+		margin-bottom: 35px
+		@media screen and (max-width:450px)
+			font-size: 21px
+	&.middle
+		font-size: 34px
+		+media-breakpoint-down(md)
+			font-size: 30px
+	&.big
+		line-height: 1.15em
+		font-size: 50px
+		margin-bottom: 60px
+		font-weight: 400
+		line-height: 1.5em
+		+media-breakpoint-down(sm)
+			font-size: 37px
+			margin-bottom: 40px
+		+media-breakpoint-down(xs)
+			// font-size: 40px
+		@media screen and (max-width:450px)
+			font-size: 36px
+		@media screen and (max-width:410px)
+			font-size: 31px
+		@media screen and (max-width:360px)
+			font-size: 28px
+	&.center
+		text-align: center
+.under-title
+	padding-left: 70px
+	font-size: 20px
+	position: relative
+	line-height: 1.2em
+	+media-breakpoint-down(xs)
+		font-size: 18px
+		padding-left: 45px
+	&.white
+		color: #fff
+		&:before
+			background: #fff
+	&:before
+		content: ''
+		position: absolute
+		width: 45px
+		height: 2px
+		left: 0
+		top: 0.55em
+		background: $text
+		+media-breakpoint-down(xs)
+			width: 30px
+	&+.title
+		margin-top: 35px
+		+media-breakpoint-down(xs)
+			margin-top: 20px
+.pref-title
+	font-size: 286px
+	position: absolute
+	font-weight: 800
+	text-transform: uppercase
+	top: 0
+	z-index: 0
+	left: 50%
+	transform: translateX(-50%)
+	@media screen and (max-width:1920px)
+		font-size: calc(60px + (286 - 60) * ((100vw - 320px) / (1920 - 320)) )
+	span
+		font: inherit
+		display: block
+		line-height: 0.7em
+		&+span
+			margin-top: .3em
+			margin-left: 1.7em
+			@media screen and (max-width:1920px)
+				margin-left: calc(42px + (486 - 42) * ((100vw - 320px) / (1920 - 320)) )
+.user
+	display: flex
+	align-items: center
+	&__icon
+		height: 45px
+		width: 45px
+		min-width: 45px
+		border-radius: 50%
+		position: relative
+		overflow: hidden
+		margin-right: 10px
+	&__name
+		font-size: 16px
+	&__email
+		font-size: 14px
+		opacity: 0.7
+.social
+	display: flex
+	margin-top: 20px
+	&>li
+		&+li
+			margin-left: 15px
+		&>a
+			display: flex
+			height: 30px
+			width: 30px
+			align-items: center
+			justify-content: center
+			&:hover
+				svg
+					fill: $red
+			svg
+				fill: #fff
+				transition: all .25s ease
+.swiper
+	.swiper-wrapper
+		box-sizing: border-box
+	.swiper-button-prev, .swiper-button-next
+		position: relative
+		cursor: pointer
+		width: 100px
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		top: 50%
+		transform: translateY(-50%)
+		z-index: 9
+		height: 100%
+		transition: all .25s ease
+		margin-top: 0
+		+media-breakpoint-down(xs)
+			width: 75px
+			display: none
+		&.swiper-button-disabled
+			opacity: 0
+			pointer-events: none
+		&::before
+			content: ''
+			width: 28px
+			height: 28px
+			display: block
+			position: relative
+			background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path fill="%23e50914" d="M11.56 5.56L10.5 4.5 6 9l4.5 4.5 1.06-1.06L8.12 9z"></path></svg>')
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: contain
+		&:after
+			position: absolute
+			content: ''
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			z-index: -1
+	.swiper-button-prev
+		justify-content: flex-start
+		left: -30px
+		+media-breakpoint-down(xs)
+			left: -1px
+		&:after
+			background-image: linear-gradient(to right,#181818 30%,rgba(24,24,24,0) 100%)
+			left: 10px
+	.swiper-button-next
+		justify-content: flex-end
+		right: -30px
+		+media-breakpoint-down(xs)
+			right: -1px
+		&:after
+			background-image: linear-gradient(to left,#181818 30%,rgba(24,24,24,0) 100%)
+			right: 10px
+		&::before
+			transform: rotate(180deg)
+.overlay
+	position: fixed
+	width: 100vw
+	height: 100vh
+	top: 0
+	left: 0
+	pointer-events: none
+	background: #222
+	opacity: 0
+	z-index: 5
+	transition: all .25s ease
+	&.is-active
+		opacity: 0.7
+		pointer-events: all
+.mfp-wrap
+	overflow-y: overlay !important
+	overflow-x: hidden !important
+	// background: #fff
+	&::-webkit-scrollbar
+		width: 5px
+.mfp-bg
+	opacity: 0.6
+	background: $text
+.mfp-content
+	max-width: 1920px
+	margin: 0 auto
+.mfp-container
+	padding: 0
+.mfp-close
+	width: 85px
+	height: 85px
+	background: $red !important
+	opacity: 1
+	font-size: 0
+	+media-breakpoint-down(xs)
+		width: 75px
+		height: 75px
+	&:before
+		width: 100%
+		height: 100%
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g><g><g><path fill="%23ffffff" d="M.425.447a1.046 1.046 0 0 1 1.48 0L29.53 28.073a1.047 1.047 0 0 1-1.48 1.48L.425 1.927a1.046 1.046 0 0 1 0-1.48z"/></g><g><path fill="%23ffffff" d="M29.681.296a1.057 1.057 0 0 1 0 1.495L1.791 29.68a1.056 1.056 0 1 1-1.494-1.494L28.187.297a1.057 1.057 0 0 1 1.494 0z"/></g></g></g></svg>')
+		background-repeat: no-repeat
+		background-position: center center 
+.scroll
+	// white-space: nowrap
+	overflow-x: scroll
+	-webkit-overflow-scrolling: touch
+	-ms-overflow-style: -ms-autohiding-scrollbar
+	scrollbar-width: none
+	&::-webkit-scrollbar
+		display: none
+*.is-scrolling
+	animation: scroll .8s linear
+.scrollmagic-pin-spacer
+	// padding-bottom: 0 !important
+.no-pointer
+	pointer-events: none !important
+@keyframes scroll
+	0%
+		transform: translateX(0)
+	35.33%
+		transform: translateX(-90px)
+	83.33%
+		transform: translateX(-90px)
+	// 66%
+	// 	transform: translateX(-10%)
+	100%
+		transform: translateX(0)
