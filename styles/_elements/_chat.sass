@@ -36,6 +36,22 @@
 		.message
 			align-self: flex-end
 			max-width: 100%
+			display: flex
+			align-items: center
+			&__icon
+				width: 45px
+				min-width: 45px
+				height: 45px
+				border-radius: 50%
+				position: relative
+				overflow: hidden
+				margin-left: 10px
+				align-self: flex-start
+				order: 2
+			&__body
+				display: flex
+				flex-direction: column
+				max-width: calc(100% - 55px)
 			&__date
 				font-size: 12px
 				opacity: 0.7
@@ -54,6 +70,7 @@
 				text-overflow: ellipsis
 				display: block
 				white-space: nowrap
+				align-self: flex-end
 				&>a
 					color: #fff
 					text-decoration: underline
@@ -73,12 +90,17 @@
 			&.is-sender
 				align-self: flex-start
 				.message
+					&__icon
+						order: -1
+						margin-right: 10px
+						margin-left: 0
 					&__bubble	
 						background: #7289da
+						align-self: flex-start
 					&__date
 						text-align: left
 			&+.message
-				margin-top: 10px
+				margin-top: 20px
 		&::-webkit-scrollbar
 			width: 5px
 			height: 5px

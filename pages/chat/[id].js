@@ -9,9 +9,7 @@ import { addDoc, collection, doc, orderBy, query, serverTimestamp } from 'fireba
 import { auth, db } from '../../firebaseconfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import getOtherEmail from '../../utils/getOtherEmail';
-import urlify from '../../utils/urlify';
-import timeStampConvert from '../../utils/timeStampConvert';
-import imgify from '../../utils/imgify';
+import Message from '../../components/Message';
 const Chat = () => {
     const [user] = useAuthState(auth);
     const router = useRouter();
@@ -21,16 +19,21 @@ const Chat = () => {
     const [chat] = useDocumentData(doc(db, 'chats', id))
     const [input, setInput] = useState('')
     const bottomOfChat = useRef();
+    const {uid, displayName, photoURL} = user
     const sendMessage = async (e) => {
         e.preventDefault()
-        await addDoc(collection(db, `chats/${id}/messages`), {
-            text: input,
-            sender: user.email,
-            timestamp: serverTimestamp()
-        })
+        if(input.length>0){
+            await addDoc(collection(db, `chats/${id}/messages`), {
+                text: input,
+                sender: user.email,
+                uid,
+                displayName,
+                photoURL,
+                timestamp: serverTimestamp()
+            })
+        }       
         setInput('')
     }
-
     useEffect(() =>{
         setTimeout(
             bottomOfChat.current.scrollIntoView({
@@ -60,7 +63,7 @@ const Chat = () => {
                             </div>
                         </div>
                         <div className="chat__body">
-                            {messages?.map(message => <Message key={Math.random()} text={message.text} timeStamp={message.timestamp?.seconds} className={message.sender == user.email ? 'is-sender' : ''} />)}
+                            {messages?.map(message => <Message key={Math.random()} text={message.text} timeStamp={message.timestamp?.seconds} photo={message.photoURL} className={message.sender == user.email ? 'is-sender' : ''} />)}
                             <div ref={bottomOfChat}></div>
                         </div>
                         <div className="chat__bottom">
@@ -77,16 +80,5 @@ const Chat = () => {
         </div>
     );
 };
-const Message = ({ text, className, timeStamp=169000000}) => {
-    return (
-        <div className={`message ${className}`}>
-            <div className="message__date">{(timeStampConvert(timeStamp).isToday? 'Сегодня': timeStampConvert(timeStamp).long) +' в '+ timeStampConvert(timeStamp).short }</div>
-            <div className="message__bubble">
-                { ( urlify(text) && imgify(text) ) ? <a href={ text.indexOf('https://')==0?text:'https://'+ text  } rel="noreferrer" target="_blank">{text}</a>: text}
-                { ( imgify(text) ) && <img src={text} alt="" />}
-            </div>       
-        </div>
-    )
 
-}
 export default Chat;
