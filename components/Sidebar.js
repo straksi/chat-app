@@ -25,7 +25,7 @@ const Sidebar = () => {
     }
     const signOutHandler = () =>{
         signOut(auth)
-        // router.replace(`/`);
+        router.push(`/`);
         // window.history.replaceState(null, '', '/')
     }
     return (

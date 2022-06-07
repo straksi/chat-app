@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Sidebar from '../components/Sidebar'
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebaseconfig';
 export default function Home() {
+	const [user, loading, error] = useAuthState(auth);
 	return (
 		<div>
 			<Head>
@@ -13,7 +15,7 @@ export default function Home() {
 
 			<main>
 			 	<section className='chat-section'>
-					<Sidebar/>	
+					{user && <Sidebar/>	}
 				</section>
 			</main>
 

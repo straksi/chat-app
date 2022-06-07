@@ -45,6 +45,12 @@
 			padding: 15px
 			cursor: pointer
 			background: rgba(#292841, 0)
+			&.is-active
+				background: #7289da
+				pointer-events: none
+				.user
+					&__email
+						opacity: 1
 			&:hover
 				background: rgba(#292841, 1)
 			&+.user

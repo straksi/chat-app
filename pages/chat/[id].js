@@ -36,8 +36,8 @@ const Chat = () => {
             bottomOfChat.current.scrollIntoView({
                 behavior: "smooth",
                 block: 'start',
-            }), 100)
-        , [messages]})    
+            }), 250)
+        , [messages]})
     return (
         <div>
             <Head>
