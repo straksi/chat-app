@@ -36,8 +36,8 @@ const Chat = () => {
             bottomOfChat.current.scrollIntoView({
                 behavior: "smooth",
                 block: 'start',
-            }), 250)
-        , [messages]})
+            }), 100)
+        , [messages, bottomOfChat.current.getBoundingClientRect()]})
     return (
         <div>
             <Head>
