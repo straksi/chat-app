@@ -16,7 +16,8 @@ const Login = () => {
 					<div className="login-box">
 						<div className="login-box__title">Chat App</div>
 						<div className="login-box__image">
-							<Image src={'/../public/chat-icon.png'} alt="user icon" layout='fill' />
+							<Image src={'/../public/chat-icon.png'} alt="chat icon" layout='fill' />
+							<Image src='https://cdn-icons-png.flaticon.com/512/309/309666.png' alt="chat icon" layout='fill' />
 						</div>
 						<button className="btn" onClick={() => signInWithGoogle("", { prompt: "select_account" })}>Sign In with Google</button>
 					</div>
