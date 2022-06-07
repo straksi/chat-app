@@ -31,7 +31,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-head">
-                <User src={user?.photoURL} name={user.displayName} email={user.email} />
+                <User src={user?.photoURL} name={user.displayName} />
                 <div className="logout" onClick={() => {signOutHandler()}}>out</div>
             </div>
             <div className="sidebar-create">
